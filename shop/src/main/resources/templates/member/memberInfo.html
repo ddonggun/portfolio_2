@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+<head>
+</head>
+
+</th:block>
+
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+  <style>
+    .content-mg{
+      margin-left:30%;
+      margin-right:30%;
+      margin-top:2%;
+      margin-bottom:100px;
+    }
+    .repImgDiv{
+      margin-right:15px;
+      margin-left:15px;
+      height:auto;
+    }
+    .repImg{
+      height:100px;
+      width:100px;
+    }
+    .card{
+      width:750px;
+      height:100%;
+      padding:30px;
+      margin-bottom:20px;
+    }
+    .fs18{
+      font-size:18px
+    }
+    .fs24{
+      font-size:24px
+    }
+  </style>
+</th:block>
+
+<div layout:fragment="content" class="content-mg">
+
+  <h2 class="mb-4">
+    관리자 전용 화면 - 회원목록
+  </h2>
+
+  <tbody>
+  <table border="1">
+  <tr>
+    <th>이름</th>
+    <th>이메일</th>
+    <th>주소</th>
+    <th>사용자 구분</th>
+  </tr>
+  <tr th:each="member : ${members}">
+    <td th:text="${member.name}"></td>
+    <td th:text="${member.email}"></td>
+    <td th:text="${member.address}"></td>
+    <td th:text="${member.role}"></td>
+  </tr>
+  </table>
+  </tbody>
+
+  <br>
+
+</div>
+</html>
